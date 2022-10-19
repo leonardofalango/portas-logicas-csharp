@@ -1,6 +1,6 @@
 public class Sum : Gate
 {
-    
+    // private int left = 0;
     private bool input3;
     public bool Input3
     {
@@ -53,6 +53,13 @@ public class Sum : Gate
             XorGate xor = new XorGate();
             xor.Input = this.Input;
             xor.Input2 = this.Input3;
+
+            // AndGate and = new AndGate();
+            // and.Input = this.Input;
+            // and.Input2 = this.Input3;
+
+            // if (and.Output)
+            //     this.left += 1;
             return xor.Output;
         }
         set
