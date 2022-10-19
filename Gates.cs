@@ -10,7 +10,7 @@ public class OrGate : Gate
     {
         get
         {
-            return this.Input && this.Input2;
+            return this.Input || this.Input2;
         }
         set
         {
@@ -27,7 +27,39 @@ public class AndGate : Gate
     {
         get
         {
-            return this.Input || this.Input2;
+            return this.Input && this.Input2;
+        }
+        set
+        {
+            
+        }
+    }
+}
+
+
+public class XorGate : Gate
+{
+    public override bool Output
+    {
+        get
+        {
+            AndGate e = new AndGate();
+            e.Input = this.Input;
+            e.Input2 = this.Input2;
+            
+            OrGate ou = new OrGate();
+            ou.Input = this.Input;
+            ou.Input2 = this.Input2;
+
+            if (e.Output)
+            {
+                return false;
+            }
+            else if (ou.Output)
+            {
+                return true;
+            }
+            return false;
         }
         set
         {
